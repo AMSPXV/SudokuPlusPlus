@@ -40,7 +40,10 @@ int GameContainer::Play()
 	returnCode = Game::ConsoleIntro(introFile);
 	levelFile.open("Levels.txt", std::ios::in);
 	returnCode = FileHandler::CreateLevelList(globalStart,levelFile);
+	sf::Image icon;
+	icon.loadFromFile("windowIcon.png");
 	sf::RenderWindow gameWindow(sf::VideoMode(1024, 576), "C++ Sudoku",sf::Style::Close);
+	gameWindow.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 	Game::ConsoleText("[LOG] Ustvaril okno za grafiko.", 'L');
 
 	// GAME LOOP
